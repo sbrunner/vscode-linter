@@ -424,6 +424,14 @@
               "name": "pylint",
               "url": "https://www.pylint.org"
             },
+            "prospector": {
+              "command": ["prospector", "--messages-only", "--output-format=json", "$file"],
+              "configFiles": [".prospector.yaml"],
+              "enabled": true,
+              "languages": ["python"],
+              "name": "prospector",
+              "url": "https://prospector.landscape.io"
+            },
             "reek": {
               "capabilities": [
                 "ignore-line"
