@@ -18,44 +18,44 @@
   "main": "./dist/extension.js",
   "publisher": "sbrunner",
   "contributes": {
-        "configuration": {
-          "properties": {
-            "linter-prospector.config": {
-              "default": {
-                "capabilities": [
-                                "fix-all"
-                              ],
-                "command": [
-                  "prospector",
-                  "--messages-only",
-                  "--output-format=json",
-                                [
-                                  "$fixAll",
-                                  "--profile",
-                                  ".prospector-fix.yaml"
-                                ],
-                  "$file"
-                ],
-                "configFiles": [
-                  ".prospector.yaml",
-                  ".prospector.yml"
-                ],
-                "enabled": true,
-                "languages": [
-                  "python"
-                ],
-                "name": "prospector",
-                "url": "https://prospector.landscape.io"
-              },
-              "title": "The Prospector linter configuration",
-              "type": "object"
-            }
-          }
+    "configuration": {
+      "properties": {
+        "linter-prospector.config": {
+          "default": {
+            "capabilities": [
+              "fix-all"
+            ],
+            "command": [
+              "prospector",
+              "--messages-only",
+              "--output-format=json",
+              [
+                "$fixAll",
+                "--profile",
+                ".prospector-fix.yaml"
+              ],
+              "$file"
+            ],
+            "configFiles": [
+              ".prospector.yaml",
+              ".prospector.yml"
+            ],
+            "enabled": true,
+            "languages": [
+              "python"
+            ],
+            "name": "prospector",
+            "url": "https://prospector.landscape.io"
+          },
+          "title": "The Prospector linter configuration",
+          "type": "object"
         }
+      }
+    }
   },
-    "extensionDependencies": [
-      "fnando.linter"
-    ],
+  "extensionDependencies": [
+    "fnando.linter"
+  ],
   "scripts": {
     "vscode:prepublish": "npm run package",
     "vscode:publish": "vsce publish",
