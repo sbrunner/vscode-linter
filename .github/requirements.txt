@@ -1,0 +1,2 @@
+c2cciutils==1.7.1
+pre-commit==4.0.1

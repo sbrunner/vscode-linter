@@ -15,6 +15,8 @@ import {
 	code: string;
 	location: ProspectorLocation;
 	message: string;
+	docUrl?: string;
+	fixable?: boolean;
   }
 
   interface ProspectorLocation {
@@ -23,6 +25,8 @@ import {
 	function: string;
 	line: number;
 	character: number;
+	lineEnd?: number;
+	characterEnd?: number;
   }
 
   const messageRegex = /(?<message>.*) \[See: (?<url>.*)\]/;
@@ -49,17 +53,14 @@ import {
 		uri,
 		lineStart: Math.max(0, message.location.line - 1),
 		columnStart: Math.max(0, message.location.character - 1),
-		lineEnd: Math.max(0, message.location.line - 1),
-		columnEnd: Math.max(0, message.location.character),
+		lineEnd: Math.max(0, message.location.lineEnd || message.location.line - 1),
+		columnEnd: Math.max(0, message.location.characterEnd || message.location.character),
 		code: `${message.source}:${message.code}`,
 		message: messageString,
 		severity: LinterOffenseSeverity.error,
 		source: "prospector",
-		correctable: false,
-		docsUrl: docsUrl,
-		endLine: number;
-		endColumn: number;
-       fix?: {
+		correctable: message.fixable || false,
+		docsUrl: message.docUrl || docsUrl,
 	  });
 	});
 
