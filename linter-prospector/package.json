@@ -2,8 +2,8 @@
   "name": "linter-prospector",
   "displayName": "linter-prospector",
   "description": "Prospector extension for https://github.com/fnando/vscode-linter",
-  "icon": "binocular.svg",
-  "version": "0.7.1",
+  "icon": "binocular.png",
+  "version": "0.7.2",
   "engines": {
     "vscode": "^1.96.0"
   },
