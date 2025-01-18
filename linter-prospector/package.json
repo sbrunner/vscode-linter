@@ -30,9 +30,12 @@
               "--messages-only",
               "--output-format=json",
               [
+                "$config",
+                "--profile=$config"
+              ],
+              [
                 "$fixAll",
-                "--profile",
-                ".prospector-fix.yaml"
+                "--profile=.prospector-fix.yaml"
               ],
               "$file"
             ],
